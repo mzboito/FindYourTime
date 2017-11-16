@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FindYourTime</string>
+    <string name="button_schedule">Schedule</string>
+    <string name="button_Tasks">Tasks</string>
 </resources>
