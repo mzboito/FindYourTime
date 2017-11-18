@@ -11,7 +11,7 @@ import java.util.List;
 public class Info implements Serializable {
 
     public enum task_type {
-        hobby, priority
+        hobby, duty
     }
 
     List<Task> tasks_array;
