@@ -16,6 +16,7 @@ public class Info implements Serializable {
 
     List<Task> tasks_array;
     int id;
+    int notificationTime;
 
     public Info(String fileName){
 
@@ -47,6 +48,11 @@ public class Info implements Serializable {
     public void iterId() {
         id = id + 1;
     }
+
+    public void resortList() {
+
+    }
+
 
     //TODO function to sort the TASK list
 
