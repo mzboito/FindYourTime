@@ -30,7 +30,7 @@ public class TasksActivity extends AppCompatActivity {
 
     public void sendNewTaskActivity(View view) {
         Intent intent = new Intent(this, NewTaskActivity.class);
-        intent.putExtra("InfoClass", infoTasks);
+        //intent.putExtra("InfoClass", infoTasks);
         startActivity(intent);
     }
 
