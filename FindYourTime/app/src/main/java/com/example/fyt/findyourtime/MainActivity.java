@@ -2,6 +2,7 @@ package com.example.fyt.findyourtime;
 
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -14,6 +15,7 @@ import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
+import android.util.Log;
 import android.view.View;
 import java.util.Calendar;
 import android.widget.TextView;
@@ -28,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     CountDownTimer timer;
     NotificationCompat.Builder mBuilder;
-    PendingIntent resultPendingIntent;
-    boolean clickedFirstTime = true;
-    boolean canDisturb = true; // Controls if the app is already counting some time
+    Handler handler;
 
 
     @Override
@@ -38,10 +38,30 @@ public class MainActivity extends AppCompatActivity {
         // initial activity setup
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setTitle("Find Your Time");
+        info = new Info(); //in the future we will open a file for this
+        info.add_task("teste",5,Info.task_type.hobby);
+        //buildNotification();
+        //sendNotifications();
+        handler = new Handler();
+        // Define the code block to be executed
 
-        sendNotifications();
+        // Start the initial runnable task by posting through the handler
+        handler.post(runnableCode);
 
     }
+
+    private Runnable runnableCode = new Runnable() {
+        @Override
+        public void run() {
+            buildNotification();
+            // Do something here on the main thread
+            Log.d("Handlers", "Called on main thread");
+            // Repeat this the same runnable code block again another 2 seconds
+            // 'this' is referencing the Runnable object
+            handler.postDelayed(this, info.getNotificationTime());
+        }
+    };
 
     @Override
     protected void onPause() {
@@ -49,54 +69,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void sendNotifications() {
-        if (canDisturb)
-            buildNotification();
-
-        // Current celphone time
-        Calendar currentTime = Calendar.getInstance();
-        int currentHour = currentTime.get(Calendar.HOUR_OF_DAY);
-        int currentMinute = currentTime.get(Calendar.MINUTE);
-
-        // Test if it's getting right hour and minute
-
-        /* String currentHourStr = Integer.toString(currentHour);
-        String currentMinStr = Integer.toString(currentMinute);
-
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(currentMinStr);
-        ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main);
-        layout.addView(textView);*/
-    }
-
-    public void buildNotification()
-    {
-       mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+    public void buildNotification() {
+        List<Task> tasks = info.getTasks_array();
+        if(!tasks.isEmpty()){
+            Task t = info.getTasks_array().get(0);
+            info.resortList();
+            mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                     .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
-                    .setContentTitle("FUNCIONAAAAAAAAAAA")
-                    .setContentText("Para de olhar pro teto criatura");
-                //.setVibrate(new long[]{500, 500})
-        //.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
+                    .setContentTitle("How about doing something nice?")
+                    .setContentText("How about "+t.name+"?");
+            //.setVibrate(new long[]{500, 500})
+            //.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
 
-        Intent resultIntent = new Intent(this, MainActivity.class);
-
-        //Clicking the notification opens mainMenu activity
-        resultPendingIntent =
-                PendingIntent.getActivity(
-                        this,
-                        0,
-                        resultIntent,
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
-        setTitle("Find Your Time");
-        info = new Info(); //in the future we will open a file for this
-
-        NotificationManager mNotifyMgr =
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        // Builds the notification and issues it.
-        mNotifyMgr.notify(0, mBuilder.build());
-
+            NotificationManager mNotifyMgr =
+                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            // Builds the notification and issues it.
+            mNotifyMgr.notify(0, mBuilder.build());
+        }
     }
 
     public void sendTasksActivity(View view) {

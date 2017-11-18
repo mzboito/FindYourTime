@@ -16,6 +16,8 @@ public class Info implements Serializable {
 
     List<Task> tasks_array;
     int id;
+    int notificationTime;
+
     public Info(String fileName){
 
     }
@@ -24,6 +26,7 @@ public class Info implements Serializable {
         tasks_array = new ArrayList<Task>();
         //in the future we will have a schedule <3
         id = 0;
+        notificationTime = 30000; //30 seconds for tests
     }
 
     public List<Task> getTasks_array() {
@@ -33,10 +36,15 @@ public class Info implements Serializable {
     public void add_task(String name, int priority, Info.task_type type){
         Task t = new Task(name, priority, type);
         tasks_array.add(t);
+        resortList();
     }
 
     public void delete_task(String taskName){
         //TODO
+    }
+
+    public int getNotificationTime() {
+        return notificationTime;
     }
 
     public int getId() {
@@ -46,6 +54,11 @@ public class Info implements Serializable {
     public void iterId() {
         id = id + 1;
     }
+
+    public void resortList() {
+
+    }
+
 
     //TODO function to sort the TASK list
 
