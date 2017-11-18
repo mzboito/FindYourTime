@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">FindYourTime</string>
-    <string name="button_schedule">Schedule</string>
-    <string name="button_Tasks">Tasks</string>
+    <string name="app_name">Find Your Time</string>
+    <string name="button_schedule">schedule</string>
+    <string name="button_tasks">tasks</string>
+    <string name="button_add">add</string>
+    <string name="button_delete">delete</string>
+    <string name="button_pull">pull a task</string>
+    <string name="button_settings">alarm settings</string>
 </resources>
