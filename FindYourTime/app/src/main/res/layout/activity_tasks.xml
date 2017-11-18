@@ -7,53 +7,57 @@
     tools:context="com.example.fyt.findyourtime.TasksActivity">
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/buttonT1"
         android:layout_width="358dp"
         android:layout_height="42dp"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:text="@string/button_delete"
-        app:layout_constraintBottom_toTopOf="@+id/button14"
+        app:layout_constraintBottom_toTopOf="@+id/buttonT4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button8" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonT3" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/buttonT2"
         android:layout_width="358dp"
         android:layout_height="44dp"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:text="@string/button_pull"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintBottom_toTopOf="@+id/buttonT3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/buttonT3"
         android:layout_width="358dp"
         android:layout_height="44dp"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
+        android:onClick="sendNewTaskActivity"
         android:text="@string/button_add"
-        app:layout_constraintBottom_toTopOf="@+id/button11"
+        app:layout_constraintBottom_toTopOf="@+id/buttonT1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonT2" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/buttonT4"
         android:layout_width="358dp"
         android:layout_height="42dp"
-        android:layout_marginBottom="291dp"
+        android:layout_marginBottom="275dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:text="@string/button_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button11" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonT1" />
 </android.support.constraint.ConstraintLayout>

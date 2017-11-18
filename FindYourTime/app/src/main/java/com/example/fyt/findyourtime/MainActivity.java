@@ -19,7 +19,12 @@ import java.util.Calendar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+    Info info;
 
     CountDownTimer timer;
     NotificationCompat.Builder mBuilder;
@@ -30,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // initial activity setup
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -62,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(currentMinStr);
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main);
         layout.addView(textView);*/
-
     }
 
     public void buildNotification()
@@ -84,10 +89,19 @@ public class MainActivity extends AppCompatActivity {
                         resultIntent,
                         PendingIntent.FLAG_UPDATE_CURRENT
                 );
+        setTitle("Find Your Time");
+        info = new Info(); //in the future we will open a file for this
+
+        NotificationManager mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        // Builds the notification and issues it.
+        mNotifyMgr.notify(0, mBuilder.build());
+
     }
 
     public void sendTasksActivity(View view) {
         Intent intent = new Intent(this, TasksActivity.class);
+        intent.putExtra("InfoClass", info);
         startActivity(intent);
     }
 
@@ -95,6 +109,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
-
-    public void
 }
