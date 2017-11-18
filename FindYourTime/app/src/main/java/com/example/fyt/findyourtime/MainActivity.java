@@ -30,9 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
     CountDownTimer timer;
     NotificationCompat.Builder mBuilder;
-    PendingIntent resultPendingIntent;
-    boolean clickedFirstTime = true;
-    boolean canDisturb = true; // Controls if the app is already counting some time
     Handler handler;
 
 
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Handlers", "Called on main thread");
             // Repeat this the same runnable code block again another 2 seconds
             // 'this' is referencing the Runnable object
-            handler.postDelayed(this, 2000);
+            handler.postDelayed(this, info.getNotificationTime());
         }
     };
 
@@ -80,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                     .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
                     .setContentTitle("How about doing something nice?")
-                    .setContentText("I was thinking about "+t.name);
+                    .setContentText("How about "+t.name+"?");
             //.setVibrate(new long[]{500, 500})
             //.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
 
