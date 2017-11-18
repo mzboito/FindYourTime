@@ -1,5 +1,6 @@
 package com.example.fyt.findyourtime;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.Calendar;
@@ -7,6 +8,7 @@ import java.util.Calendar;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import java.util.Date;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,12 +17,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         getCurrentTime();
 
     }
 
-    private void getCurrentTime()
+    public void getCurrentTime()
     {
         // Current celphone time
         Calendar currentTime = Calendar.getInstance();
@@ -37,5 +38,16 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(currentMinStr);
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main);
         layout.addView(textView);*/
+        setTitle("Find Your Time");
+    }
+
+    public void sendTasksActivity(View view) {
+        Intent intent = new Intent(this, TasksActivity.class);
+        startActivity(intent);
+    }
+
+    public void sendScheduleActivity(View view) {
+        Intent intent = new Intent(this, ScheduleActivity.class);
+        startActivity(intent);
     }
 }
