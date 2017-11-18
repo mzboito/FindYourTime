@@ -6,4 +6,10 @@
     <string name="button_delete">delete</string>
     <string name="button_pull">pull a task</string>
     <string name="button_settings">alarm settings</string>
+    <string name="task_name">Task Name</string>
+    <string name="priority">Priority</string>
+    <string name="duty">Register as a DUTY:</string>
+    <string name="message_hobby">The default for tasks is HOBBY.</string>
+    <string name="cancel">cancel</string>
+    <string name="register">register</string>
 </resources>
