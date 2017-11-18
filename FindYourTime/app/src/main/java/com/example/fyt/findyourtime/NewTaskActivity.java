@@ -24,7 +24,8 @@ public class NewTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_task);
         setTitle("Adding a New Task");
         Intent i = getIntent();
-        info = (Info)i.getSerializableExtra("InfoClass");
+        info = MainActivity.info;
+        //info = (Info)i.getSerializableExtra("InfoClass");
     }
 
     public void tester(String message){

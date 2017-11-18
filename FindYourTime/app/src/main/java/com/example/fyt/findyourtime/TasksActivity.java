@@ -23,7 +23,8 @@ public class TasksActivity extends AppCompatActivity {
         setTitle("Tasks");
 
         Intent i = getIntent();
-        infoTasks = (Info)i.getSerializableExtra("InfoClass");
+        //infoTasks = (Info)i.getSerializableExtra("InfoClass");
+        infoTasks = MainActivity.info;
 
     }
 

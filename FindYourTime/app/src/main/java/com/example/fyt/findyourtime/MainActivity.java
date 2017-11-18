@@ -25,8 +25,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class MainActivity extends AppCompatActivity {
-    Info info;
+    //Info info;
+    public static Info info;
 
     CountDownTimer timer;
     NotificationCompat.Builder mBuilder;
@@ -41,12 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Find Your Time");
         info = new Info(); //in the future we will open a file for this
         info.add_task("teste",5,Info.task_type.hobby);
-        //buildNotification();
-        //sendNotifications();
         handler = new Handler();
-        // Define the code block to be executed
-
-        // Start the initial runnable task by posting through the handler
         handler.post(runnableCode);
 
     }
@@ -62,12 +60,6 @@ public class MainActivity extends AppCompatActivity {
             handler.postDelayed(this, info.getNotificationTime());
         }
     };
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-    }
 
     public void buildNotification() {
         List<Task> tasks = info.getTasks_array();
@@ -90,12 +82,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendTasksActivity(View view) {
         Intent intent = new Intent(this, TasksActivity.class);
-        intent.putExtra("InfoClass", info);
+        //intent.putExtra("InfoClass", info);
         startActivity(intent);
     }
 
     public void sendScheduleActivity(View view) {
         Intent intent = new Intent(this, ScheduleActivity.class);
+        //intent.putExtra("InfoClass", info);
         startActivity(intent);
     }
 }
