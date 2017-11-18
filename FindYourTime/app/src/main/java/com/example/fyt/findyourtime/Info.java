@@ -15,16 +15,17 @@ public class Info implements Serializable {
     }
 
     List<Task> tasks_array;
+    Schedule schedule;
     int id;
     int notificationTime;
 
     public Info(String fileName){
-
+        //read from a file
     }
 
     public Info(){
         tasks_array = new ArrayList<Task>();
-        //in the future we will have a schedule <3
+        schedule = new Schedule();
         id = 0;
         notificationTime = 30000; //30 seconds for tests
     }
@@ -88,9 +89,8 @@ public class Info implements Serializable {
         return false;
     }
 
-    //TODO function to sort the TASK list
+    public void saveNewInfo(){
+        //write in the file the new information gave by the user
+    }
 
-    //TODO function for reading a file with tasks and schedule
-
-    //TODO function to upate the file with tasks and schedule
 }
