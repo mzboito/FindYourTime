@@ -16,7 +16,6 @@ public class Info implements Serializable {
 
     List<Task> tasks_array;
     int id;
-
     public Info(String fileName){
 
     }
