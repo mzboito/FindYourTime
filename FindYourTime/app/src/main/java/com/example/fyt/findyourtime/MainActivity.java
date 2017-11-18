@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Find Your Time");
         info = new Info(); //in the future we will open a file for this
-        info.add_task("teste",5,Info.task_type.hobby);
         handler = new Handler();
         handler.post(runnableCode);
 
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                     .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
                     .setContentTitle("How about doing something nice?")
-                    .setContentText("How about "+t.name+"?");
+                    .setContentText("I was thinking about "+t.name+"?");
             //.setVibrate(new long[]{500, 500})
             //.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
 
@@ -82,13 +81,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendTasksActivity(View view) {
         Intent intent = new Intent(this, TasksActivity.class);
-        //intent.putExtra("InfoClass", info);
         startActivity(intent);
     }
 
     public void sendScheduleActivity(View view) {
         Intent intent = new Intent(this, ScheduleActivity.class);
-        //intent.putExtra("InfoClass", info);
         startActivity(intent);
     }
 }

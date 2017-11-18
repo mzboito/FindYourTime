@@ -59,6 +59,30 @@ public class Info implements Serializable {
 
     }
 
+    public void deleteTask(String name){
+        Task t = findTask(name);
+        if(t != null){
+            tasks_array.remove(t);
+        }
+    }
+
+    public Task findTask(String name){
+        for(Task t : tasks_array){
+            if(t.name.equals(name)){
+                return t;
+            }
+        }
+        return null;
+    }
+
+    public boolean alreadyUsed(String name){
+        for(Task t : tasks_array){
+            if(t.name.equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
 
     //TODO function to sort the TASK list
 

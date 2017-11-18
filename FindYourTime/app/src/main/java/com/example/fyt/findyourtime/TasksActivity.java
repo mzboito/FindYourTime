@@ -21,27 +21,19 @@ public class TasksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
         setTitle("Tasks");
-
-        Intent i = getIntent();
-        //infoTasks = (Info)i.getSerializableExtra("InfoClass");
         infoTasks = MainActivity.info;
-
     }
 
     public void sendNewTaskActivity(View view) {
         Intent intent = new Intent(this, NewTaskActivity.class);
-        //intent.putExtra("InfoClass", infoTasks);
         startActivity(intent);
     }
 
     public void notifyTask(View view){
 
         if(!infoTasks.getTasks_array().isEmpty()){
-
             tasks_array = infoTasks.getTasks_array();
-
             Task task = tasks_array.get(0);
-
             TextView textView = new TextView(this);
             textView.setTextSize(40);
             textView.setText(task.getName());
