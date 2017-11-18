@@ -25,7 +25,6 @@ public class NewTaskActivity extends AppCompatActivity {
         setTitle("Adding a New Task");
         Intent i = getIntent();
         info = (Info)i.getSerializableExtra("InfoClass");
-
     }
 
     public void tester(){
