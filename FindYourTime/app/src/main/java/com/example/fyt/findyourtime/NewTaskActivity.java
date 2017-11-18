@@ -27,14 +27,14 @@ public class NewTaskActivity extends AppCompatActivity {
         info = (Info)i.getSerializableExtra("InfoClass");
     }
 
-    public void tester(){
-        Intent i = getIntent();
-        Info infoTasks = (Info)i.getSerializableExtra("InfoClass");
-        infoTasks.add_task("teste",5,Info.task_type.hobby);
-        Task t = infoTasks.getTasks_array().get(0);
+    public void tester(String message){
+        //Intent i = getIntent();
+        //Info infoTasks = (Info)i.getSerializableExtra("InfoClass");
+        //infoTasks.add_task("teste",5,Info.task_type.hobby);
+        //Task t = infoTasks.getTasks_array().get(0);
         TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(t.name);
+        textView.setTextSize(20);
+        textView.setText(message);
         ViewGroup layout = (ViewGroup) findViewById(R.id.activity_new_task);
         layout.addView(textView);
     }
@@ -47,8 +47,12 @@ public class NewTaskActivity extends AppCompatActivity {
         // register and then finish
         EditText editText = (EditText)findViewById(R.id.nt_editText);
         String name = editText.getText().toString();
+        if(name.equals("Task Name")){ //no name was given
+            name = "task0" + String.valueOf(info.getId());
+            info.iterId();
+        }
         SeekBar seekBar = (SeekBar)findViewById(R.id.nt_seekBar);
-        int priority = Integer.valueOf(seekBar.toString());
+        int priority = seekBar.getProgress();
         Switch nt_switch = (Switch)findViewById(R.id.nt_switch);
         Info.task_type type;
         if(nt_switch.isChecked()){ // then it's a duty
@@ -57,38 +61,11 @@ public class NewTaskActivity extends AppCompatActivity {
         else{
             type = Info.task_type.hobby;
         }
+        tester(name);
         info.add_task(name, priority, type);
-        //popup();
         finish();
     }
 
-    public void popup(){
-        // get a reference to the already created main layout
-        LinearLayout mainLayout = (LinearLayout) findViewById(R.id.activity_new_task);
-
-        // inflate the layout of the popup window
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        View popupView = inflater.inflate(R.layout.popup_window, null);
-
-        // create the popup window
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        boolean focusable = true; // lets taps outside the popup also dismiss it
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-
-        // show the popup window
-        popupWindow.showAtLocation(mainLayout, Gravity.CENTER, 0, 0);
-
-        // dismiss the popup window when touched
-        popupView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                popupWindow.dismiss();
-                return true;
-            }
-        });
-
-    }
 
     @Override
     public void onBackPressed() { // I don't know if this is necessary
