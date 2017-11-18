@@ -57,7 +57,7 @@ public class NewTaskActivity extends AppCompatActivity {
                 int i = 1;
                 name = name.replace(name.substring(name.length()-1), String.valueOf(i));
                 //name = name + String.valueOf(i);
-                i++;
+                i = i + 1;
                 //then add something to the end
             };
         }
