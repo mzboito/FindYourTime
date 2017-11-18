@@ -42,12 +42,6 @@ public class TasksActivity extends AppCompatActivity {
 
             Task task = tasks_array.get(0);
 
-            TextView textView = new TextView(this);
-            textView.setTextSize(40);
-            textView.setText(task.getName());
-            ViewGroup layout = (ViewGroup) findViewById(R.id.activity_tasks);
-            layout.addView(textView);
-
             NotificationCompat.Builder mBuilder;
             PendingIntent resultPendingIntent;
 
@@ -63,15 +57,7 @@ public class TasksActivity extends AppCompatActivity {
 
             // Builds the notification and issues it.
             mNotifyMgr.notify(0, mBuilder.build());
-
-        }
-
-        else {
-            TextView textView = new TextView(this);
-            textView.setTextSize(40);
-            textView.setText("vazio");
-            ViewGroup layout = (ViewGroup) findViewById(R.id.activity_tasks);
-            layout.addView(textView);
+            infoTasks.resortList();
         }
     }
 }

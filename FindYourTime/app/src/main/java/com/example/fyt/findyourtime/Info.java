@@ -56,7 +56,11 @@ public class Info implements Serializable {
     }
 
     public void resortList() {
-
+        if(!tasks_array.isEmpty()){
+            Task removedTask = tasks_array.get(0);
+            tasks_array.remove(0);
+            tasks_array.add(removedTask);
+        }
     }
 
 
