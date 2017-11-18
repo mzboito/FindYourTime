@@ -23,9 +23,7 @@ public class NewTaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_task);
         setTitle("Adding a New Task");
-        Intent i = getIntent();
         info = MainActivity.info;
-        //info = (Info)i.getSerializableExtra("InfoClass");
     }
 
     public void tester(String message){
@@ -51,6 +49,10 @@ public class NewTaskActivity extends AppCompatActivity {
         if(name.equals("Task Name")){ //no name was given
             name = "task0" + String.valueOf(info.getId());
             info.iterId();
+        }else{
+            if(info.alreadyUsed(name)){
+                //then add something to the end
+            }
         }
         SeekBar seekBar = (SeekBar)findViewById(R.id.nt_seekBar);
         int priority = seekBar.getProgress();
