@@ -51,8 +51,15 @@ public class NewTaskActivity extends AppCompatActivity {
             info.iterId();
         }else{
             if(info.alreadyUsed(name)){
-                //then add something to the end
+                name = name + "copy1";
             }
+            while(info.alreadyUsed(name)){
+                int i = 1;
+                name = name.replace(name.substring(name.length()-1), String.valueOf(i));
+                //name = name + String.valueOf(i);
+                i++;
+                //then add something to the end
+            };
         }
         SeekBar seekBar = (SeekBar)findViewById(R.id.nt_seekBar);
         int priority = seekBar.getProgress();
