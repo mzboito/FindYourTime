@@ -6,4 +6,8 @@ package com.example.fyt.findyourtime;
 
 public class Schedule {
 
+    public Schedule(){
+
+    }
+
 }

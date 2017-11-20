@@ -54,10 +54,14 @@ public class NewTaskActivity extends AppCompatActivity {
             if(info.alreadyUsed(name)){
                 name = name + "copy1";
             }
+            int iter = 2;
             while(info.alreadyUsed(name)){
                 name = name.replace(name.substring(name.length()-1), String.valueOf(i));
+                name = name.substring(0, name.length() - 1) + String.valueOf(iter);
+                tester(name);
+                 //name.replace(name.substring(name.length()-1), String.valueOf(i));
                 //name = name + String.valueOf(i);
-                i = i + 1;
+                iter = iter + 1;
                 //then add something to the end
             };
         }
@@ -71,7 +75,7 @@ public class NewTaskActivity extends AppCompatActivity {
         else{
             type = Info.task_type.hobby;
         }
-        tester(name);
+        //tester(name);
         info.add_task(name, priority, type);
         finish();
     }
