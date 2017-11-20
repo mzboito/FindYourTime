@@ -58,7 +58,7 @@ public class NewTaskActivity extends AppCompatActivity {
             while(info.alreadyUsed(name)){
                 name = name.replace(name.substring(name.length()-1), String.valueOf(i));
                 name = name.substring(0, name.length() - 1) + String.valueOf(iter);
-                tester(name);
+                //tester(name);
                 //name.replace(name.substring(name.length()-1), String.valueOf(i));
                 //name = name + String.valueOf(i);
                 iter = iter + 1;
