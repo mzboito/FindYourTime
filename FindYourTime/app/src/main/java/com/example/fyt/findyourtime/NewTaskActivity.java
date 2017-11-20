@@ -50,11 +50,11 @@ public class NewTaskActivity extends AppCompatActivity {
             name = "task0" + String.valueOf(info.getId());
             info.iterId();
         }else{
+            int i = 1;
             if(info.alreadyUsed(name)){
                 name = name + "copy1";
             }
             while(info.alreadyUsed(name)){
-                int i = 1;
                 name = name.replace(name.substring(name.length()-1), String.valueOf(i));
                 //name = name + String.valueOf(i);
                 i = i + 1;
