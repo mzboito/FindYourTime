@@ -59,7 +59,7 @@ public class NewTaskActivity extends AppCompatActivity {
                 name = name.replace(name.substring(name.length()-1), String.valueOf(i));
                 name = name.substring(0, name.length() - 1) + String.valueOf(iter);
                 tester(name);
-                 //name.replace(name.substring(name.length()-1), String.valueOf(i));
+                //name.replace(name.substring(name.length()-1), String.valueOf(i));
                 //name = name + String.valueOf(i);
                 iter = iter + 1;
                 //then add something to the end

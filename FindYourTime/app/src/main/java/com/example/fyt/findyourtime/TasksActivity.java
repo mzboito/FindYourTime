@@ -34,14 +34,11 @@ public class TasksActivity extends AppCompatActivity {
         if(!infoTasks.getTasks_array().isEmpty()){
             tasks_array = infoTasks.getTasks_array();
             Task task = tasks_array.get(0);
-<<<<<<< HEAD
-=======
             /*TextView textView = new TextView(this);
             textView.setTextSize(40);
             textView.setText(task.getName());
             ViewGroup layout = (ViewGroup) findViewById(R.id.activity_tasks);
             layout.addView(textView);*/
->>>>>>> 0fba17c039227bd8953a890bba92894ef3654762
 
             NotificationCompat.Builder mBuilder;
             PendingIntent resultPendingIntent;
