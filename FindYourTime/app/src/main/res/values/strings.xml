@@ -6,6 +6,7 @@
     <string name="button_delete">delete</string>
     <string name="button_pull">pull a task</string>
     <string name="button_settings">alarm settings</string>
+    <string name="button_edit">edit</string>
     <string name="task_name">Task Name</string>
     <string name="priority">Priority</string>
     <string name="duty">Register as a DUTY:</string>

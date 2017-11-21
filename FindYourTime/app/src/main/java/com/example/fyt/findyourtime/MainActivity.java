@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                     .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
                     .setContentTitle("How about doing something nice?")
-                    .setContentText("I was thinking about "+t.name+"?");
+                    .setContentText("I was thinking about "+t.name);
             //.setVibrate(new long[]{500, 500})
             //.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
 
