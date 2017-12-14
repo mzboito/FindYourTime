@@ -29,6 +29,7 @@ public class TasksActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // mudar o criterio de notificar tarefa, só pode notificar quando não coincidir com o schedule
     public void notifyTask(View view){
 
         if(!infoTasks.getTasks_array().isEmpty()){

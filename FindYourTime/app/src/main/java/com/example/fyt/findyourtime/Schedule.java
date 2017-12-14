@@ -6,8 +6,29 @@ package com.example.fyt.findyourtime;
 
 public class Schedule {
 
-    public Schedule(){
+    String name;
+    Info.schedule_date_type type;
+    // ver como ajeitar a hora
+    int hourBegin;
+    int minuteBegin;
+    int hourEnd;
+    int minuteEnd;
 
+    public Schedule(String name, Info.schedule_date_type type, int hourBegin, int minuteBegin, int hourEnd, int minuteEnd){
+        this.name = name;
+        this.type = type;
+        this.hourBegin = hourBegin;
+        this.minuteBegin = minuteBegin;
+        this.hourEnd = hourEnd;
+        this.minuteEnd = minuteEnd;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Info.schedule_date_type getType() {
+        return type;
     }
 
 }

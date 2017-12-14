@@ -14,8 +14,12 @@ public class Info implements Serializable {
         hobby, duty
     }
 
+    public enum schedule_date_type {
+        weekdays, weekend
+    }
+
     List<Task> tasks_array;
-    Schedule schedule;
+    List<Schedule> schedule_array;
     int id;
     int notificationTime;
 
@@ -25,7 +29,7 @@ public class Info implements Serializable {
 
     public Info(){
         tasks_array = new ArrayList<Task>();
-        schedule = new Schedule();
+        schedule_array = new ArrayList<Schedule>();
         id = 0;
         notificationTime = 30000; //30 seconds for tests
     }
@@ -34,10 +38,18 @@ public class Info implements Serializable {
         return tasks_array;
     }
 
+    public List<Schedule> getSchedule_array() {return schedule_array;}
+
     public void add_task(String name, int priority, Info.task_type type){
         Task t = new Task(name, priority, type);
         tasks_array.add(t);
         resortList();
+    }
+
+    public void add_schedule(String name, Info.schedule_date_type type, int hourBegin, int minuteBegin, int hourEnd, int minuteEnd){
+        Schedule s = new Schedule(name, type, hourBegin, minuteBegin, hourEnd, minuteEnd);
+        schedule_array.add(s);
+
     }
 
     public void delete_task(String taskName){
@@ -83,6 +95,15 @@ public class Info implements Serializable {
     public boolean alreadyUsed(String name){
         for(Task t : tasks_array){
             if(t.name.equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean alreadyUsedSchedule(String name){
+        for(Schedule s : schedule_array){
+            if(s.name.equals(name)){
                 return true;
             }
         }
