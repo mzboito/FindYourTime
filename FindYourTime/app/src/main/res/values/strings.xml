@@ -13,4 +13,13 @@
     <string name="message_hobby">The default for tasks is HOBBY.</string>
     <string name="cancel">cancel</string>
     <string name="register">register</string>
+    <string name="schedule_name">Schedule Name</string>
+    <string name="from_date">From</string>
+    <string name="to_date">To</string>
+    <string name="date">Choose days</string>
+    <string name="weekdays">Monday to Friday</string>
+    <string name="weekends">Weekends</string>
+    <string name="hour">h</string>
+    <string name="minutes">min</string>
+
 </resources>
