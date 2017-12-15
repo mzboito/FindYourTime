@@ -93,4 +93,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ScheduleActivity.class);
         startActivity(intent);
     }
+
 }
