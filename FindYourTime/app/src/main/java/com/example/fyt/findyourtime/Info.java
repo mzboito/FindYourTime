@@ -73,12 +73,21 @@ public class Info implements Serializable {
         Task t = new Task(name, priority, type);
         tasks_array.add(t);
         resortList();
+        try {
+            write_file();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void add_schedule(String name, Info.schedule_date_type type, int hourBegin, int minuteBegin, int hourEnd, int minuteEnd){
         Schedule s = new Schedule(name, type, hourBegin, minuteBegin, hourEnd, minuteEnd);
         schedule_array.add(s);
-
+        try {
+            write_file();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -92,6 +101,11 @@ public class Info implements Serializable {
 
     public void iterId() {
         id = id + 1;
+        try {
+            write_file();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void resortList() {
@@ -106,6 +120,11 @@ public class Info implements Serializable {
         Task t = findTask(name);
         if(t != null){
             tasks_array.remove(t);
+        }
+        try {
+            write_file();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
