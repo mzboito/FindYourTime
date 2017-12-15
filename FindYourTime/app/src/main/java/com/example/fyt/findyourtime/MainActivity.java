@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("Find Your Time");
-        info = new Info(); //in the future we will open a file for this
+        info = new Info(this); //in the future we will open a file for this
         handler = new Handler();
         handler.post(runnableCode);
 
