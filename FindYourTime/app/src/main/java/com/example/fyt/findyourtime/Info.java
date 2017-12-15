@@ -9,6 +9,7 @@ import java.util.List;
  */
 
 public class Info implements Serializable {
+    String dumpFileName = "FYT.dump.file";
 
     public enum task_type {
         hobby, duty
@@ -28,6 +29,8 @@ public class Info implements Serializable {
     }
 
     public Info(){
+        //try to read from the file
+        //if there is no file, create these values above
         tasks_array = new ArrayList<Task>();
         schedule_array = new ArrayList<Schedule>();
         id = 0;
@@ -52,9 +55,6 @@ public class Info implements Serializable {
 
     }
 
-    public void delete_task(String taskName){
-        //TODO
-    }
 
     public int getNotificationTime() {
         return notificationTime;
@@ -110,8 +110,12 @@ public class Info implements Serializable {
         return false;
     }
 
-    public void saveNewInfo(){
+    public void updateFile(){
         //write in the file the new information gave by the user
+    }
+
+    public String toString(){
+        return "I" + "$$$" + Integer.toString(this.id) + "$$$" + Integer.toString(this.notificationTime);
     }
 
 }
