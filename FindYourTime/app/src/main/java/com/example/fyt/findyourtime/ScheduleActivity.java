@@ -18,4 +18,9 @@ public class ScheduleActivity extends AppCompatActivity {
         Intent intent = new Intent(this, NewScheduleActivity.class);
         startActivity(intent);
     }
+
+    public void deleteAScheduleActivity(View view){
+        Intent intent = new Intent(this, DeleteScheduleActivity.class);
+        startActivity(intent);
+    }
 }

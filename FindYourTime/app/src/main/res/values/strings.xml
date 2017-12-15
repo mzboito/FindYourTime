@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Find Your Time</string>
-    <string name="button_schedule">schedule</string>
-    <string name="button_tasks">tasks</string>
+    <string name="button_schedule">SCHEDULE</string>
+    <string name="button_tasks">TASKS</string>
     <string name="button_add">add</string>
     <string name="button_delete">delete</string>
     <string name="button_pull">pull a task</string>

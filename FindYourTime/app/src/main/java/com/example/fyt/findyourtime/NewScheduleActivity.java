@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 
@@ -63,6 +64,11 @@ public class NewScheduleActivity extends AppCompatActivity {
         info.add_schedule(name, dateType, hourBegin, minuteBegin, hourEnd, minuteEnd);
 
         //Log.d(name,"name");
+
+        Log.d(name, "name");
+        Log.d(dateType.toString(), "date");
+
+        Log.d("oi", "ooooooooooi");
 
         finish();
     }
