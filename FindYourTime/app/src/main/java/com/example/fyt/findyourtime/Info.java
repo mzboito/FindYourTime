@@ -7,6 +7,17 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import android.os.Environment;
+import android.util.Log;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +28,10 @@ import java.util.Scanner;
  */
 
 public class Info implements Serializable {
-<<<<<<< HEAD
-    String user_info_file = "FYT.saved.info";
-=======
     String dumpFileName = "FYT.dump.file";
->>>>>>> f67f447d1babb9ceb2eee1a3f3b7592e9fbe222b
+    Context context;
+    //final String TAG = Info.class.getName();
+    String path;
 
     public enum task_type {
         hobby, duty
@@ -36,17 +46,28 @@ public class Info implements Serializable {
     int id;
     int notificationTime;
 
-    public Info(String fileName){
-        //read from a file
-    }
-
-    public Info(){
-        //try to read from the file
-        //if there is no file, create these values above
+    public Info(Context context){
+        this.context = context;
+        this.path = this.context.getExternalCacheDir().getPath();
         tasks_array = new ArrayList<Task>();
         schedule_array = new ArrayList<Schedule>();
         id = 0;
         notificationTime = 30000; //30 seconds for tests
+
+        try {
+            read_file();
+        } catch (FileNotFoundException e){
+            try {
+                write_file();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //try to read from the file
+        //if there is no file, create these values above
+
     }
 
     public List<Task> getTasks_array() {
@@ -144,44 +165,54 @@ public class Info implements Serializable {
         return false;
     }
 
-    public void saveNewInfo() throws IOException {
-    public void updateFile(){
-        //write in the file the new information gave by the user
-        //try to read from our file
-        //if not possible, create one
-
-        /*EXAMPLE OF HOW TO WRITE A FILE*/
-        /*String filename = "myfile";
-        String string = "Hello world!";
-        FileOutputStream outputStream;
-
-        try {
-            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-            outputStream.write(string.getBytes());
-            outputStream.close();
-            //setTitle("EU ESCREVI");
-        } catch (Exception e) {
-            e.printStackTrace();
-            //setTitle("NEM ESCREVI");
-        }*/
-        /*
-
-        FileInputStream inputStream = openFileInput(filename, Context.MODE_PRIVATE);
-        String inputStreamString = new Scanner(inputStream,"UTF-8").useDelimiter("\\A").next();
-        //setTitle(inputStreamString);
-       */
-
-    }
-    private int read_file(){
-        return -1;
-    }
-
-    private int write_file(){
-        return -1;
-    }
-
     public String toString(){
         return "I" + "$$$" + Integer.toString(this.id) + "$$$" + Integer.toString(this.notificationTime);
     }
 
+    /********************************************************************/
+
+    private void read_file() throws FileNotFoundException, IOException {
+        String content = null;
+        FileInputStream fstream = new FileInputStream(new File(path + this.dumpFileName));
+        InputStreamReader ireader = new InputStreamReader(fstream);
+        BufferedReader breader = new BufferedReader(ireader);
+        StringBuilder stringBuilder = new StringBuilder();
+        while((content = breader.readLine()) != null){
+            stringBuilder.append(content + System.getProperty("line.separator"));
+        }
+        fstream.close();
+        content = stringBuilder.toString();
+        for(String line : content.split(System.getProperty("line.separator"))){
+            String[] piece = line.split("$$$");
+            switch(piece[0]){
+                case "I":
+                    this.id = Integer.parseInt(piece[1]);
+                    this.notificationTime = Integer.parseInt(piece[2]);
+                case "T":
+                    Task t = new Task(line);
+                    this.tasks_array.add(t);
+                case "S":
+                    Schedule s = new Schedule(line);
+                    this.schedule_array.add(s);
+            }
+            //Log.d("PIECE", piece);
+        }
+        breader.close();
+    }
+
+    private void write_file() throws FileNotFoundException, IOException {
+        File file = new File(path+ this.dumpFileName);
+        if (!file.exists()) {
+            file.createNewFile();
+        }else{
+            FileOutputStream fostream = new FileOutputStream(file, false);
+            fostream.write((this.toString() + System.getProperty("line.separator")).getBytes()); //write id and notificationTime
+            for(Task t : this.tasks_array){ //write all tasks
+                fostream.write((t.toString()+ System.getProperty("line.separator")).getBytes());
+            }
+            for(Schedule s : this.schedule_array){ //write all schedules
+                fostream.write((s.toString()+ System.getProperty("line.separator")).getBytes());
+            }
+        }
+    }
 }

@@ -32,31 +32,34 @@ public class DeleteScheduleActivity extends AppCompatActivity {
     }
 
     public void showScheduleToDelete(){
-        List<String> spinnerArray =  new ArrayList<String>();
 
-        for(Schedule s : info.getSchedule_array()){
-            spinnerArray.add(s.getName());
-        }
+        if(!info.getSchedule_array().isEmpty()){
+            List<String> spinnerArray =  new ArrayList<String>();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, spinnerArray);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner sItems = (Spinner) findViewById(R.id.spinner);
-        sItems.setAdapter(adapter);
-
-        Button button = (Button) findViewById(R.id.buttonDelete);
-        final String selected = sItems.getSelectedItem().toString();
-
-        info.printfSchedule();
-
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Log.d(selected, "msg");
-                Log.d("vamo deleta, partiu", "deleta tudo");
-                delete(selected);
+            for(Schedule s : info.getSchedule_array()){
+                spinnerArray.add(s.getName());
             }
-        });
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                    this, android.R.layout.simple_spinner_item, spinnerArray);
+
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            Spinner sItems = (Spinner) findViewById(R.id.spinner);
+            sItems.setAdapter(adapter);
+
+            Button button = (Button) findViewById(R.id.buttonDelete);
+            final String selected = sItems.getSelectedItem().toString();
+
+            info.printfSchedule();
+
+            button.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Log.d(selected, "msg");
+                    Log.d("vamo deleta, partiu", "deleta tudo");
+                    delete(selected);
+                }
+            });
+        }
     }
 
     public void delete(String selected){
