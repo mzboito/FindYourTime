@@ -17,7 +17,11 @@ import java.util.Scanner;
  */
 
 public class Info implements Serializable {
+<<<<<<< HEAD
     String user_info_file = "FYT.saved.info";
+=======
+    String dumpFileName = "FYT.dump.file";
+>>>>>>> f67f447d1babb9ceb2eee1a3f3b7592e9fbe222b
 
     public enum task_type {
         hobby, duty
@@ -37,6 +41,8 @@ public class Info implements Serializable {
     }
 
     public Info(){
+        //try to read from the file
+        //if there is no file, create these values above
         tasks_array = new ArrayList<Task>();
         schedule_array = new ArrayList<Schedule>();
         id = 0;
@@ -61,9 +67,6 @@ public class Info implements Serializable {
 
     }
 
-    public void delete_task(String taskName){
-        //TODO
-    }
 
     public int getNotificationTime() {
         return notificationTime;
@@ -142,6 +145,7 @@ public class Info implements Serializable {
     }
 
     public void saveNewInfo() throws IOException {
+    public void updateFile(){
         //write in the file the new information gave by the user
         //try to read from our file
         //if not possible, create one
@@ -174,6 +178,10 @@ public class Info implements Serializable {
 
     private int write_file(){
         return -1;
+    }
+
+    public String toString(){
+        return "I" + "$$$" + Integer.toString(this.id) + "$$$" + Integer.toString(this.notificationTime);
     }
 
 }
