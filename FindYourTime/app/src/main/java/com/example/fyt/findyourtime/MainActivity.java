@@ -1,5 +1,6 @@
 package com.example.fyt.findyourtime;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -17,6 +18,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -45,7 +49,11 @@ public class MainActivity extends AppCompatActivity {
         info = new Info(); //in the future we will open a file for this
         handler = new Handler();
         handler.post(runnableCode);
-
+        try {
+            info.saveNewInfo();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private Runnable runnableCode = new Runnable() {
@@ -59,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
             handler.postDelayed(this, info.getNotificationTime());
         }
     };
+
+
 
     public void buildNotification() {
         List<Task> tasks = info.getTasks_array();

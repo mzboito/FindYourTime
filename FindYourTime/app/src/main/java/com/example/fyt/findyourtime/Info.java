@@ -1,14 +1,23 @@
 package com.example.fyt.findyourtime;
 
+import android.content.Context;
+import android.util.Log;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by mzboito on 18/11/17.
  */
 
 public class Info implements Serializable {
+    String user_info_file = "FYT.saved.info";
 
     public enum task_type {
         hobby, duty
@@ -83,6 +92,28 @@ public class Info implements Serializable {
         }
     }
 
+    public void deleteSchedule(String name){
+        Schedule s = findSchedule(name);
+        if(s != null){
+            tasks_array.remove(s);
+            Log.d(s.getName(), "deletei");
+        }
+    }
+
+    public Schedule findSchedule(String name){
+        for(Schedule s : schedule_array){
+            if(s.name.equals(name)){
+                return s;
+            }
+        }
+        return null;
+    }
+
+    public void printfSchedule(){
+        for(Schedule s : schedule_array)
+            Log.d(s.getName(), "prit schedule");
+    }
+
     public Task findTask(String name){
         for(Task t : tasks_array){
             if(t.name.equals(name)){
@@ -110,8 +141,39 @@ public class Info implements Serializable {
         return false;
     }
 
-    public void saveNewInfo(){
+    public void saveNewInfo() throws IOException {
         //write in the file the new information gave by the user
+        //try to read from our file
+        //if not possible, create one
+
+        /*EXAMPLE OF HOW TO WRITE A FILE*/
+        /*String filename = "myfile";
+        String string = "Hello world!";
+        FileOutputStream outputStream;
+
+        try {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(string.getBytes());
+            outputStream.close();
+            //setTitle("EU ESCREVI");
+        } catch (Exception e) {
+            e.printStackTrace();
+            //setTitle("NEM ESCREVI");
+        }*/
+        /*
+
+        FileInputStream inputStream = openFileInput(filename, Context.MODE_PRIVATE);
+        String inputStreamString = new Scanner(inputStream,"UTF-8").useDelimiter("\\A").next();
+        //setTitle(inputStreamString);
+       */
+
+    }
+    private int read_file(){
+        return -1;
+    }
+
+    private int write_file(){
+        return -1;
     }
 
 }

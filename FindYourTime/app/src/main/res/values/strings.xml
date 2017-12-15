@@ -21,5 +21,6 @@
     <string name="weekends">Weekends</string>
     <string name="hour">h</string>
     <string name="minutes">min</string>
+    <string name="textDelete">Choose a schedule to delete</string>
 
 </resources>

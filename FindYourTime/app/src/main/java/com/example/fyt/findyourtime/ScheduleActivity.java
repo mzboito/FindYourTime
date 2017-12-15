@@ -3,6 +3,7 @@ package com.example.fyt.findyourtime;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class ScheduleActivity extends AppCompatActivity {
@@ -21,6 +22,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
     public void deleteAScheduleActivity(View view){
         Intent intent = new Intent(this, DeleteScheduleActivity.class);
+        Log.d("oi chegou até aqui", "msg");
         startActivity(intent);
     }
 }
