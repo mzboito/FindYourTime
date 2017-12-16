@@ -44,16 +44,16 @@ public class DeleteScheduleActivity extends AppCompatActivity {
                     this, android.R.layout.simple_spinner_item, spinnerArray);
 
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            Spinner sItems = (Spinner) findViewById(R.id.spinner);
+            final Spinner sItems = (Spinner) findViewById(R.id.spinner);
             sItems.setAdapter(adapter);
 
             Button button = (Button) findViewById(R.id.buttonDelete);
-            final String selected = sItems.getSelectedItem().toString();
 
             info.printfSchedule();
 
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
+                    String selected = sItems.getSelectedItem().toString();
                     Log.d(selected, "msg");
                     Log.d("vamo deleta, partiu", "deleta tudo");
                     delete(selected);
@@ -67,4 +67,6 @@ public class DeleteScheduleActivity extends AppCompatActivity {
         info.printfSchedule();
         finish();
     }
+
+    public void cancelDelete(View view){ finish();}
 }

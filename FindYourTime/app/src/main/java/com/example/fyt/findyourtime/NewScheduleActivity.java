@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.SeekBar;
 import android.widget.Switch;
 
+import static java.sql.Types.NULL;
+
 public class NewScheduleActivity extends AppCompatActivity {
     Info info;
 
@@ -43,6 +45,7 @@ public class NewScheduleActivity extends AppCompatActivity {
                 //then add something to the end
             };
         }
+
         CheckBox checkWeekdays = (CheckBox) findViewById(R.id.checkBox);
         CheckBox checkWeekends = (CheckBox) findViewById(R.id.checkBox4);
         Info.schedule_date_type dateType;
@@ -58,9 +61,12 @@ public class NewScheduleActivity extends AppCompatActivity {
         if(checkWeekdays.isChecked()){ // then it's a duty
             dateType = Info.schedule_date_type.weekdays;
         }
-        else{
+        else if(checkWeekends.isChecked()){
             dateType = Info.schedule_date_type.weekend;
         }
+        else
+            dateType = Info.schedule_date_type.both;
+
         info.add_schedule(name, dateType, hourBegin, minuteBegin, hourEnd, minuteEnd);
 
         //Log.d(name,"name");

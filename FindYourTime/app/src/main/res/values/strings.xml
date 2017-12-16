@@ -22,5 +22,9 @@
     <string name="hour">h</string>
     <string name="minutes">min</string>
     <string name="textDelete">Choose a schedule to delete</string>
+    <string name="hour_begin">00</string>
+    <string name="minute_begin">00</string>
+    <string name="hour_end">07</string>
+    <string name="minute_end">00</string>
 
 </resources>
