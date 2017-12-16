@@ -295,6 +295,24 @@ public class Info implements Serializable {
     }
 
     public String getGreeting(){
-        return "BOM DIA!!";
+        DateFormat df = new SimpleDateFormat("EEE#dd,MMM,yyyy#HH:mm");
+        String date = df.format(Calendar.getInstance().getTime());
+        String time = date.split("#")[2];
+        Integer hour = Integer.parseInt(time.split(":")[0]);
+        Integer minute = Integer.parseInt(time.split(":")[1]);
+        if((hour > 18)||(hour < 6)){
+            return "Good Night!";
+        }
+        if((hour >= 6)&&(hour <= 12)){
+            return "Good Morning!";
+        }
+        else{//if((hour > 12)&&(hour <= 18)){
+            return "Good Afternoon!";
+        }
+    }
+
+    public String getDate(){
+        DateFormat df = new SimpleDateFormat("EEE#dd,MMM,yyyy#HH:mm");
+        return df.format(Calendar.getInstance().getTime());
     }
 }

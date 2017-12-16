@@ -111,7 +111,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setGreetingsText(){
-           //TextView textView = (TextView)findViewById(R.id.activity_main);
+       // TextView textView = (TextView)findViewById(R.id.activity_main);
+           //
             //textView.setTextSize(30);
             //TextView.setText(info.getGreeting());
            // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main);
