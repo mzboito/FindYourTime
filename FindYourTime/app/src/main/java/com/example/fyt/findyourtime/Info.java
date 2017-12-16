@@ -312,7 +312,7 @@ public class Info implements Serializable {
     }
 
     public String getDate(){
-        DateFormat df = new SimpleDateFormat("EEE#dd,MMM,yyyy#HH:mm");
+        DateFormat df = new SimpleDateFormat("EE, dd, MMM, yyyy, HH:mm");
         return df.format(Calendar.getInstance().getTime());
     }
 }
