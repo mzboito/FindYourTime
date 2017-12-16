@@ -53,10 +53,15 @@ public class DeleteScheduleActivity extends AppCompatActivity {
 
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
-                    String selected = sItems.getSelectedItem().toString();
-                    Log.d(selected, "msg");
-                    Log.d("vamo deleta, partiu", "deleta tudo");
-                    delete(selected);
+                    try{
+                        String selected = sItems.getSelectedItem().toString();
+                        Log.d(selected, "msg");
+                        Log.d("vamo deleta, partiu", "deleta tudo");
+                        delete(selected);
+                    }catch(Exception e){
+                        int i = 2;
+                    }
+
                 }
             });
         }
@@ -69,4 +74,10 @@ public class DeleteScheduleActivity extends AppCompatActivity {
     }
 
     public void cancelDelete(View view){ finish();}
+
+    @Override
+    public void onBackPressed() { // I don't know if this is necessary
+        super.onBackPressed();
+        this.finish();
+    }
 }

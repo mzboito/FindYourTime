@@ -29,34 +29,10 @@ public class TasksActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // mudar o criterio de notificar tarefa, só pode notificar quando não coincidir com o schedule
-    public void notifyTask(View view){
-
-        if(!infoTasks.getTasks_array().isEmpty()){
-            tasks_array = infoTasks.getTasks_array();
-            Task task = tasks_array.get(0);
-            /*TextView textView = new TextView(this);
-            textView.setTextSize(40);
-            textView.setText(task.getName());
-            ViewGroup layout = (ViewGroup) findViewById(R.id.activity_tasks);
-            layout.addView(textView);*/
-
-            NotificationCompat.Builder mBuilder;
-            PendingIntent resultPendingIntent;
-
-            mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
-                    .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
-                    .setContentTitle("Let's do something nice!")
-                    .setContentText("How about " + task.getName());
-            //.setVibrate(new long[]{500, 500})
-            //.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
-
-            NotificationManager mNotifyMgr =
-                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-            // Builds the notification and issues it.
-            mNotifyMgr.notify(0, mBuilder.build());
-            infoTasks.resortList();
-        }
+    @Override
+    public void onBackPressed() { // I don't know if this is necessary
+        super.onBackPressed();
+        this.finish();
     }
+
 }

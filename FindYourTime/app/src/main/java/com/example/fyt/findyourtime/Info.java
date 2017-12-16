@@ -65,6 +65,7 @@ public class Info implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Log.d("INFO", Integer.toString(tasks_array.size()));
         //try to read from the file
         //if there is no file, create these values above
 
@@ -185,7 +186,7 @@ public class Info implements Serializable {
     }
 
     public String toString(){
-        return "I" + "$$$" + Integer.toString(this.id) + "$$$" + Integer.toString(this.notificationTime);
+        return "I" + "@@@" + Integer.toString(this.id) + "@@@" + Integer.toString(this.notificationTime);
     }
 
     /********************************************************************/
@@ -202,19 +203,32 @@ public class Info implements Serializable {
         fstream.close();
         content = stringBuilder.toString();
         for(String line : content.split(System.getProperty("line.separator"))){
-            String[] piece = line.split("$$$");
-            switch(piece[0]){
-                case "I":
-                    this.id = Integer.parseInt(piece[1]);
-                    this.notificationTime = Integer.parseInt(piece[2]);
-                case "T":
+            String[] piece = line.split("@@@");
+            if(piece[0].equals("I")){
+                this.id = Integer.parseInt(piece[1]);
+                this.notificationTime = Integer.parseInt(piece[2]);
+            }else{
+                if(piece[0].equals("T")){
                     Task t = new Task(line);
-                    this.tasks_array.add(t);
-                case "S":
-                    Schedule s = new Schedule(line);
-                    this.schedule_array.add(s);
+                    if(t != null){
+                        this.tasks_array.add(t);
+                        Log.d("TASK", t.getName() + " ");
+                    }
+                }else{
+                    if(piece[0].equals("S")){
+                        Schedule s = new Schedule(line);
+                        if(s != null){
+                            this.schedule_array.add(s);
+                            Log.d("SCHED", s.getName() + " ");
+                            Log.d("SCHED", piece[1] + " ");
+                        }
+                    }
+                }
             }
-            //Log.d("PIECE", piece);
+
+            Log.d("READ", line);
+            Log.d("PIECE[0]", piece[0]);
+            Log.d("SIZE", Integer.toString(this.tasks_array.size()));
         }
         breader.close();
     }
@@ -227,11 +241,30 @@ public class Info implements Serializable {
             FileOutputStream fostream = new FileOutputStream(file, false);
             fostream.write((this.toString() + System.getProperty("line.separator")).getBytes()); //write id and notificationTime
             for(Task t : this.tasks_array){ //write all tasks
-                fostream.write((t.toString()+ System.getProperty("line.separator")).getBytes());
+                if(t != null){
+                    fostream.write((t.toString()+ System.getProperty("line.separator")).getBytes());
+                    Log.d("WRITE", t.toString()+ "AAA");
+                }
             }
             for(Schedule s : this.schedule_array){ //write all schedules
-                fostream.write((s.toString()+ System.getProperty("line.separator")).getBytes());
+                if(s != null){
+                    fostream.write((s.toString()+ System.getProperty("line.separator")).getBytes());
+                    Log.d("WRITE", s.toString() + "AAA");
+                }
+
             }
         }
+    }
+
+    public boolean scheduleConfict(){
+        for(Schedule s : this.schedule_array){
+
+        }
+        //TODO CHECK IF CAN DO THE NOTIFICATION OR NOT
+        return false;
+    }
+
+    public String getGreeting(){
+        return "BOM DIA!!";
     }
 }

@@ -22,6 +22,8 @@ import android.view.View;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
+
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -32,7 +34,6 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    //Info info;
     public static Info info;
 
     CountDownTimer timer;
@@ -49,12 +50,13 @@ public class MainActivity extends AppCompatActivity {
         info = new Info(this); //in the future we will open a file for this
         handler = new Handler();
         handler.post(runnableCode);
+        setGreetingsText();
     }
 
     private Runnable runnableCode = new Runnable() {
         @Override
         public void run() {
-            buildNotification();
+            buildNotification(false);
             // Do something here on the main thread
             Log.d("Handlers", "Called on main thread");
             // Repeat this the same runnable code block again another 2 seconds
@@ -64,18 +66,27 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
+    public void buildNotification(boolean ignore) {
+        if(ignore){
+            user_notify();
+        }else{
+            if(!info.scheduleConfict()){
+                user_notify();
+            }
+        }
+    }
 
-    public void buildNotification() {
+    public void user_notify(){
         List<Task> tasks = info.getTasks_array();
         if(!tasks.isEmpty()){
             Task t = info.getTasks_array().get(0);
             info.resortList();
             mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                     .setSmallIcon(android.R.drawable.ic_lock_idle_alarm)
-                    .setContentTitle("How about doing something nice?")
-                    .setContentText("I was thinking about "+t.name);
-            //.setVibrate(new long[]{500, 500})
-            //.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
+                    .setContentTitle("Find your time!")
+                    .setContentText("Time to "+t.name)//;
+                    .setVibrate(new long[]{500, 500})
+                    .setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
 
             NotificationManager mNotifyMgr =
                     (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
@@ -94,4 +105,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // mudar o criterio de notificar tarefa, só pode notificar quando não coincidir com o schedule
+    public void notifyTask(View view){
+        buildNotification(true);
+    }
+
+    public void setGreetingsText(){
+           //TextView textView = (TextView)findViewById(R.id.activity_main);
+            //textView.setTextSize(30);
+            //TextView.setText(info.getGreeting());
+           // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main);
+           // layout.addView(textView);
+
+
+    }
 }
