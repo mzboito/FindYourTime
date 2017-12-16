@@ -22,12 +22,12 @@ public class ScheduleActivity extends AppCompatActivity {
 
     public void deleteAScheduleActivity(View view){
         Intent intent = new Intent(this, DeleteScheduleActivity.class);
-        Log.d("oi chegou até aqui", "msg");
+        //Log.d("oi chegou até aqui", "msg");
         startActivity(intent);
     }
 
     @Override
-    public void onBackPressed() { // I don't know if this is necessary
+    public void onBackPressed() {
         super.onBackPressed();
         this.finish();
     }

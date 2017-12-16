@@ -152,7 +152,12 @@ public class Info implements Serializable {
         Schedule s = findSchedule(name);
         if(s != null){
             schedule_array.remove(s);
-            Log.d(s.getName(), "deletei");
+            Log.d("DELETE SCHED", s.getName());
+            try {
+                write_file();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
