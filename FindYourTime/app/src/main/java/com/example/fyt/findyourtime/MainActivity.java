@@ -108,6 +108,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void sendSettingsPopUp(View view){
+        Intent intent = new Intent(this, SettingsPopUp.class);
+        startActivity(intent);
+    }
+
     // mudar o criterio de notificar tarefa, só pode notificar quando não coincidir com o schedule
     public void notifyTask(View view){
         buildNotification(true);

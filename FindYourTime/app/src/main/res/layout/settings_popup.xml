@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:backgroundTint="@color/colorAccent">
+
+    <TextView
+        android:id="@+id/viewToMin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textHour4"
+        android:layout_alignBottom="@+id/textHour4"
+        android:layout_toEndOf="@+id/textHour4"
+        android:text="@string/minutes"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFromMinute" />
+
+    <TextView
+        android:id="@+id/viewToHour2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textHour3"
+        android:layout_alignBottom="@+id/textHour3"
+        android:layout_toEndOf="@+id/textHour3"
+        android:text="@string/hour"
+        app:layout_constraintBottom_toTopOf="@+id/textPickDate"
+        app:layout_constraintEnd_toStartOf="@+id/textMin2"
+        app:layout_constraintStart_toEndOf="@+id/textHour2"
+        app:layout_constraintTop_toBottomOf="@+id/viewFromHour" />
+
+    <EditText
+        android:id="@+id/textHour4"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/viewToHour2"
+        android:layout_alignBottom="@+id/viewToHour2"
+        android:layout_marginStart="31dp"
+        android:layout_toEndOf="@+id/viewToHour2"
+        android:ems="10"
+        android:inputType="time"
+        android:text="@string/minute_end"
+        app:layout_constraintBottom_toTopOf="@+id/textPickDate"
+        app:layout_constraintEnd_toStartOf="@+id/viewToHour"
+        app:layout_constraintStart_toEndOf="@+id/textTo"
+        app:layout_constraintTop_toBottomOf="@+id/textHour" />
+
+    <EditText
+        android:id="@+id/textHour3"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView4"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:inputType="time"
+        android:text="@string/hour_begin"
+        app:layout_constraintBottom_toTopOf="@+id/textPickDate"
+        app:layout_constraintEnd_toStartOf="@+id/viewToHour"
+        app:layout_constraintStart_toEndOf="@+id/textTo"
+        app:layout_constraintTop_toBottomOf="@+id/textHour" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="49dp"
+        android:text="@string/text_settings"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/viewToMin2"
+        android:layout_alignStart="@+id/textHour3"
+        android:layout_below="@+id/textHour3"
+        android:layout_marginTop="28dp"
+        android:onClick="apply"
+        android:text="@string/button_apply" />
+</RelativeLayout>

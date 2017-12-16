@@ -119,6 +119,15 @@ public class Info implements Serializable {
         }
     }
 
+    public void setNotificationTime(int notificationTime){
+        this.notificationTime = notificationTime;
+        try {
+            write_file();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void resortList() {
         if(!tasks_array.isEmpty()){
             Task removedTask = tasks_array.get(0);
