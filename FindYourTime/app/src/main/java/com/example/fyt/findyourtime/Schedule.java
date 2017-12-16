@@ -27,7 +27,7 @@ public class Schedule {
     }
 
     public Schedule(String string2Schedule){
-        String[] pieces = string2Schedule.split("$$$");
+        String[] pieces = string2Schedule.split("@@@");
             if(pieces.length == 6){
                 this.name = pieces[0];
                 switch (pieces[1]){
@@ -60,7 +60,7 @@ public class Schedule {
                 return "INV";
             }
         }
-        return "S" + "$$$" + this.name + "$$$" + str_type + "$$$" + Integer.toString(this.hourBegin) +
-                "$$$" + Integer.toString(this.minuteBegin) + "$$$" + Integer.toString(this.hourEnd) + "$$$" + Integer.toString(this.minuteEnd);
+        return "S" + "@@@" + this.name + "@@@" + str_type + "@@@" + Integer.toString(this.hourBegin) +
+                "@@@" + Integer.toString(this.minuteBegin) + "@@@" + Integer.toString(this.hourEnd) + "@@@" + Integer.toString(this.minuteEnd);
     }
 }

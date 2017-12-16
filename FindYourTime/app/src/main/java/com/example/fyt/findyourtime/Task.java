@@ -19,7 +19,7 @@ public class Task {
     }
 
     public Task(String string2Task){
-        String[] pieces = string2Task.split("$$$");
+        String[] pieces = string2Task.split("@@@");
         if(pieces.length == 4){
             this.name = pieces[1];
             this.priority = Integer.parseInt(pieces[2]);
@@ -57,7 +57,7 @@ public class Task {
                 return "INV";
             }
         }
-        return "T" + "$$$" + this.name + "$$$"+ Integer.toString(this.priority) + "$$$" + str_type;
+        return "T" + "@@@" + this.name + "@@@" + Integer.toString(this.priority) + "@@@" + str_type;
     }
 
 }
