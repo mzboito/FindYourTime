@@ -22,6 +22,8 @@
         <activity android:name=".NewScheduleActivity" />
         <activity android:name=".DeleteScheduleActivity"></activity>
         <activity android:name=".SettingsPopUp" android:theme ="@style/AppTheme.CustomTheme"></activity>
+        <activity android:name=".NewSchedulePopUp" android:theme ="@style/AppTheme.CustomTheme"></activity>
+
     </application>
 
 </manifest>
