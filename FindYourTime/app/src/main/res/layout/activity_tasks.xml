@@ -7,55 +7,68 @@
     tools:context="com.example.fyt.findyourtime.TasksActivity"
     android:id="@+id/activity_tasks">
 
-    <Button
-        android:id="@+id/buttonT1"
-        android:layout_width="358dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:text="@string/button_edit"
-        app:layout_constraintBottom_toTopOf="@+id/buttonT5"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageButton
+        android:id="@+id/editButton"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="36dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="44dp"
+        android:background="#ffe6e6"
+        android:src="@drawable/edit_100"
+        app:layout_constraintEnd_toStartOf="@+id/viewButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonT3" />
+        app:layout_constraintTop_toBottomOf="@+id/addButton"
+        tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/buttonT5"
-        android:layout_width="358dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:text="@string/button_delete"
-        app:layout_constraintBottom_toTopOf="@+id/buttonT4"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageButton
+        android:id="@+id/addButton"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="41dp"
+        android:background="#ffe6e6"
+        android:src="@drawable/add_100"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonT1" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/buttonT3"
-        android:layout_width="358dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:onClick="sendNewTaskActivity"
-        android:text="@string/button_add"
-        app:layout_constraintBottom_toTopOf="@+id/buttonT1"
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="42dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="41dp"
+        android:background="#ffe6e6"
+        android:src="@drawable/delete_100"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/addButton"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
-    <Button
-        android:id="@+id/buttonT4"
-        android:layout_width="358dp"
-        android:layout_height="44dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:text="@string/button_view"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageButton
+        android:id="@+id/viewButton"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="42dp"
+        android:layout_marginTop="44dp"
+        android:background="#ffe6e6"
+        android:src="@drawable/view_100"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonT5" />
+        app:layout_constraintTop_toBottomOf="@+id/deleteButton"
+        tools:ignore="ContentDescription" />
+
 </android.support.constraint.ConstraintLayout>
