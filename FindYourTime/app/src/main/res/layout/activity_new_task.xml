@@ -39,12 +39,13 @@
 
     <SeekBar
         android:id="@+id/nt_seekBar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        style="@android:style/Widget.Material.SeekBar.Discrete"
         android:layout_width="209dp"
         android:layout_height="37dp"
         android:layout_marginBottom="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
+        android:backgroundTintMode="src_atop"
         android:max="5"
         android:progress="2"
         app:layout_constraintBottom_toTopOf="@+id/textView2"

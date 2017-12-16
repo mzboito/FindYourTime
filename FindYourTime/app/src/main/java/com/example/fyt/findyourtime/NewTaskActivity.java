@@ -1,6 +1,8 @@
 package com.example.fyt.findyourtime;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -24,6 +26,10 @@ public class NewTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_task);
         setTitle("Adding a New Task");
         info = MainActivity.info;
+
+        SeekBar seekBar = (SeekBar)findViewById(R.id.nt_seekBar);
+        seekBar.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+        seekBar.getThumb().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
     }
 
     public void tester(String message){

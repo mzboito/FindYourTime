@@ -140,12 +140,13 @@ public class Info implements Serializable {
         Task t = findTask(name);
         if(t != null){
             tasks_array.remove(t);
+            try {
+                write_file();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        try {
-            write_file();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public void deleteSchedule(String name){

@@ -39,10 +39,10 @@ public class DeleteTaskActivity extends AppCompatActivity {
                     this, android.R.layout.simple_spinner_item, spinnerArray);
 
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            final Spinner sItems = (Spinner) findViewById(R.id.spinner);
+            final Spinner sItems = (Spinner) findViewById(R.id.spinner2);
             sItems.setAdapter(adapter);
 
-            Button button = (Button) findViewById(R.id.buttonDelete);
+            Button button = (Button) findViewById(R.id.buttonDelete2);
 
             info.printfSchedule();
 
@@ -58,12 +58,13 @@ public class DeleteTaskActivity extends AppCompatActivity {
                     }
                 }
             });
+
         }
     }
 
     public void delete(String selected){
         info.deleteTask(selected);
-        info.printfSchedule();
+        //info.printfSchedule();
         finish();
     }
 
