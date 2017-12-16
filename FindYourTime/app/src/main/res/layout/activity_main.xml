@@ -60,26 +60,25 @@
         app:layout_constraintTop_toBottomOf="@+id/button3"
         tools:ignore="ContentDescription" />
 
-    <Button
+    <ImageButton
         android:id="@+id/settingsButton"
         android:layout_width="64dp"
-        android:layout_height="47dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="448dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="21dp"
         android:onClick="sendSettingsPopUp"
+        android:src="@drawable/settings_50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="321dp"
+        android:layout_width="250dp"
         android:layout_height="53dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:text="Find Your Time"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
