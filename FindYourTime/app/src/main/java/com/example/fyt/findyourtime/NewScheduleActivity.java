@@ -70,12 +70,9 @@ public class NewScheduleActivity extends AppCompatActivity {
         info.add_schedule(name, dateType, hourBegin, minuteBegin, hourEnd, minuteEnd);
 
         //Log.d(name,"name");
-
-        Log.d(name, "name");
-        Log.d(dateType.toString(), "date");
-
-        Log.d("oi", "ooooooooooi");
-
+        //Log.d(name, "name");
+        //Log.d(dateType.toString(), "date");
+        //Log.d("oi", "ooooooooooi");
         finish();
     }
 

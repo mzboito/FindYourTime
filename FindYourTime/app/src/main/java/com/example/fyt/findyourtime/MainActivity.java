@@ -2,6 +2,7 @@ package com.example.fyt.findyourtime;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.widget.TextView.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private Runnable runnableCode = new Runnable() {
         @Override
         public void run() {
+            setGreetingsText();
             buildNotification(false);
             // Do something here on the main thread
             Log.d("Handlers", "Called on main thread");
@@ -105,15 +108,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void sendSettingsPopUp(View view){
+        Intent intent = new Intent(this, SettingsPopUp.class);
+        startActivity(intent);
+    }
+
     // mudar o criterio de notificar tarefa, só pode notificar quando não coincidir com o schedule
     public void notifyTask(View view){
         buildNotification(true);
     }
 
     public void setGreetingsText(){
-           //TextView textView = (TextView)findViewById(R.id.activity_main);
-            //textView.setTextSize(30);
-            //TextView.setText(info.getGreeting());
+        TextView textView = (TextView)findViewById(R.id.textView3);
+        //textView.setTextSize(40);
+        textView.setTextColor(Color.BLACK);
+        textView.setText(info.getGreeting() + " (" + info.getDate() + ")");
            // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main);
            // layout.addView(textView);
 
