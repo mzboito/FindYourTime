@@ -22,6 +22,8 @@ import android.view.View;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
+
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         info = new Info(this); //in the future we will open a file for this
         handler = new Handler();
         handler.post(runnableCode);
+        setGreetingsText();
     }
 
     private Runnable runnableCode = new Runnable() {
@@ -108,12 +111,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setGreetingsText(){
-        /*TextView textView = new TextView(this);
-            textView.setTextSize(40);
-            textView.setText(task.getName());
-            ViewGroup layout = (ViewGroup) findViewById(R.id.activity_tasks);
-            layout.addView(textView);
-        */
+           //TextView textView = (TextView)findViewById(R.id.activity_main);
+            //textView.setTextSize(30);
+            //TextView.setText(info.getGreeting());
+           // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main);
+           // layout.addView(textView);
+
 
     }
 }

@@ -257,7 +257,14 @@ public class Info implements Serializable {
     }
 
     public boolean scheduleConfict(){
+        for(Schedule s : this.schedule_array){
+
+        }
         //TODO CHECK IF CAN DO THE NOTIFICATION OR NOT
         return false;
+    }
+
+    public String getGreeting(){
+        return "BOM DIA!!";
     }
 }
