@@ -15,7 +15,7 @@ public class Schedule {
     int minuteBegin;
     int hourEnd;
     int minuteEnd;
-    List<String> l;
+    //List<String> l;
 
     public Schedule(String name, Info.schedule_date_type type, int hourBegin, int minuteBegin, int hourEnd, int minuteEnd){
         this.name = name;
@@ -36,7 +36,7 @@ public class Schedule {
                     if(pieces[2].equals("WD")){
                         this.type = Info.schedule_date_type.weekdays;
                     }else{
-                        this.type = Info.schedule_date_type.both;
+                        this.type = Info.schedule_date_type.daily;
                     }
 
                 }
@@ -63,7 +63,7 @@ public class Schedule {
             if(this.type == Info.schedule_date_type.weekend){
                 str_type = "WE";
             }else{
-                if(this.type == Info.schedule_date_type.both){
+                if(this.type == Info.schedule_date_type.daily){
                 str_type = "BO";
                 }else{
                 return "INV";

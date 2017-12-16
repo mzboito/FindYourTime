@@ -19,7 +19,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -38,7 +41,7 @@ public class Info implements Serializable {
     }
 
     public enum schedule_date_type {
-        weekdays, weekend, both
+        weekdays, weekend, daily
     }
 
     List<Task> tasks_array;
@@ -257,10 +260,37 @@ public class Info implements Serializable {
     }
 
     public boolean scheduleConfict(){
-        for(Schedule s : this.schedule_array){
+        DateFormat df = new SimpleDateFormat("EEE#dd,MMM,yyyy#HH:mm");
+        String date = df.format(Calendar.getInstance().getTime());
+        String day_of_week = date.split("#")[0];
+        String time = date.split("#")[2];
+        //Log.d("CONFLICT", date);
+        //Log.d("CONFLICT", day_of_week);
+        //Log.d("CONFLICT", hour);
 
+        Info.schedule_date_type today = schedule_date_type.daily;
+        if(day_of_week.equals("sáb")||day_of_week.equals("dom")){
+            today = schedule_date_type.weekend;
+        }else{
+            today = schedule_date_type.weekdays;
         }
-        //TODO CHECK IF CAN DO THE NOTIFICATION OR NOT
+        Integer hour = Integer.parseInt(time.split(":")[0]);
+        Integer minute = Integer.parseInt(time.split(":")[1]);
+        for(Schedule s : this.schedule_array){
+            if(s.type == today){
+                Log.d("CONFLICT", "IT HAPPENS TODAY");
+                Log.d("CONFLICT", Integer.toString(s.hourEnd) + ":"+Integer.toString(s.minuteEnd));
+                Log.d("CONFLICT", Integer.toString(s.hourBegin) + ":"+Integer.toString(s.minuteBegin));
+                Log.d("CONFLICT", Integer.toString(hour) + ":" + Integer.toString(minute));
+                if((s.hourEnd >= hour)&&(s.minuteEnd > minute)){ //ends after collected time
+                    Log.d("CONFLICT","TRUE");
+                    if((s.hourBegin < hour)||((s.hourBegin == hour)&&(s.minuteBegin > minute))){ //already started
+                        Log.d("CONFLICT","TRUE");
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
 

@@ -65,7 +65,7 @@ public class NewScheduleActivity extends AppCompatActivity {
             dateType = Info.schedule_date_type.weekend;
         }
         else
-            dateType = Info.schedule_date_type.both;
+            dateType = Info.schedule_date_type.daily;
 
         info.add_schedule(name, dateType, hourBegin, minuteBegin, hourEnd, minuteEnd);
 
