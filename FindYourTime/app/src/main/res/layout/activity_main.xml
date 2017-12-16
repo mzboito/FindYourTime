@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="#e6e6ff"/>
+        android:background="#ccefff"/>
 
     <ImageButton
         android:id="@+id/scheduleButton"
@@ -64,10 +64,12 @@
         android:id="@+id/settingsButton"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="21dp"
         android:onClick="sendSettingsPopUp"
         android:src="@drawable/settings_50"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="21dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"

@@ -16,8 +16,8 @@ public class ScheduleActivity extends AppCompatActivity {
     }
 
     public void sendNewScheduleActivity(View view) {
-        //Intent intent = new Intent(this, NewScheduleActivity.class);
-        Intent intent = new Intent(this, NewSchedulePopUp.class);
+        Intent intent = new Intent(this, NewScheduleActivity.class);
+        //Intent intent = new Intent(this, NewSchedulePopUp.class);
         startActivity(intent);
     }
 
