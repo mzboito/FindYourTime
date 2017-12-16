@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = (TextView)findViewById(R.id.textView3);
         //textView.setTextSize(40);
         textView.setTextColor(Color.BLACK);
-        textView.setText(info.getGreeting() + " (" + info.getDate() + ")");
+        textView.setText(info.getGreeting() + System.getProperty("line.separator") + " (" + info.getDate() + ")");
            // ViewGroup layout = (ViewGroup) findViewById(R.id.activity_main);
            // layout.addView(textView);
 

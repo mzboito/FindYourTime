@@ -79,7 +79,6 @@
         android:layout_marginTop="32dp"
         android:text="Find Your Time"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
