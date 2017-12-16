@@ -23,9 +23,10 @@ public class Task {
         if(pieces.length == 4){
             this.name = pieces[1];
             this.priority = Integer.parseInt(pieces[2]);
-            switch (pieces[3]){
-                case "DT": this.type = Info.task_type.duty;
-                case "HB": this.type = Info.task_type.hobby;
+            if(pieces[3].equals("DT")){
+                this.type = Info.task_type.duty;
+            }else{
+                this.type = Info.task_type.hobby;
             }
         }
     }

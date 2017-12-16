@@ -82,4 +82,10 @@ public class NewScheduleActivity extends AppCompatActivity {
     public void cancelSchedule(View view){
         finish();
     }
+
+    @Override
+    public void onBackPressed() { // I don't know if this is necessary
+        super.onBackPressed();
+        this.finish();
+    }
 }

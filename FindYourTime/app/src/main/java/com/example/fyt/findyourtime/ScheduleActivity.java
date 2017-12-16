@@ -25,4 +25,10 @@ public class ScheduleActivity extends AppCompatActivity {
         Log.d("oi chegou até aqui", "msg");
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() { // I don't know if this is necessary
+        super.onBackPressed();
+        this.finish();
+    }
 }
