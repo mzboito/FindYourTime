@@ -29,6 +29,11 @@ public class TasksActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void sendDeleteTaskActivity(View view) {
+        Intent intent = new Intent(this, DeleteTaskActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public void onBackPressed() { // I don't know if this is necessary
         super.onBackPressed();
