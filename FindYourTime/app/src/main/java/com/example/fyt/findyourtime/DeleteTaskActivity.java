@@ -56,7 +56,6 @@ public class DeleteTaskActivity extends AppCompatActivity {
                     }catch(Exception e){
                         int i = 2;
                     }
-
                 }
             });
         }

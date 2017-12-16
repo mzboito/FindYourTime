@@ -15,7 +15,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="46dp"
         android:layout_marginTop="41dp"
-        android:background="#ffe6e6"
+        android:background="#d9f2df"
         android:onClick="sendNewScheduleActivity"
         android:src="@drawable/add_100"
         app:layout_constraintStart_toStartOf="parent"

@@ -53,6 +53,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="41dp"
         android:background="#ffe6e6"
+        android:onClick="sendDeleteTaskActivity"
         android:src="@drawable/delete_100"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/addButton"
