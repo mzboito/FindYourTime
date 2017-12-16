@@ -38,7 +38,7 @@ public class Info implements Serializable {
     }
 
     public enum schedule_date_type {
-        weekdays, weekend
+        weekdays, weekend, both
     }
 
     List<Task> tasks_array;
@@ -139,7 +139,7 @@ public class Info implements Serializable {
     public void deleteSchedule(String name){
         Schedule s = findSchedule(name);
         if(s != null){
-            tasks_array.remove(s);
+            schedule_array.remove(s);
             Log.d(s.getName(), "deletei");
         }
     }
