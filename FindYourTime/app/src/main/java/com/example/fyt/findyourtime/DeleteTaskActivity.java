@@ -22,11 +22,11 @@ public class DeleteTaskActivity extends AppCompatActivity {
         setTitle("Delete Task");
         info = MainActivity.info;
 
-        showScheduleToDelete();
+        showTaskToDelete();
     }
 
 
-    public void showScheduleToDelete(){
+    public void showTaskToDelete(){
 
         if(!info.getTasks_array().isEmpty()){
             List<String> spinnerArray =  new ArrayList<String>();
