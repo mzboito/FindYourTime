@@ -1,0 +1,181 @@
+LAUDO FINAL
+
+Concisao
+Total de Questões: 14
+Respondidas: 14
+Não Respondidas: 0
+Questões Conformes: 3
+Questões Não conformes: 2
+Questões Não Aplicáveis: 9
+Questões Adiadas: 0
+Comentários:
+10- Mas no futuro, sim
+14- mas no futuro, sim
+
+Protecao contra erros
+Total de Questões: 7
+Respondidas: 7
+Não Respondidas: 0
+Questões Conformes: 1
+Questões Não conformes: 2
+Questões Não Aplicáveis: 4
+Questões Adiadas: 0
+
+Consistencia
+Total de Questões: 11
+Respondidas: 11
+Não Respondidas: 0
+Questões Conformes: 4
+Questões Não conformes: 1
+Questões Não Aplicáveis: 6
+Questões Adiadas: 0
+
+Significados
+Total de Questões: 12
+Respondidas: 12
+Não Respondidas: 0
+Questões Conformes: 4
+Questões Não conformes: 1
+Questões Não Aplicáveis: 7
+Questões Adiadas: 0
+
+Flexibilidade
+Total de Questões: 3
+Respondidas: 3
+Não Respondidas: 0
+Questões Conformes: 0
+Questões Não conformes: 2
+Questões Não Aplicáveis: 1
+Questões Adiadas: 0
+Comentários:
+03- Mas no futuro, sim!
+
+Legibilidade
+Total de Questões: 27
+Respondidas: 27
+Não Respondidas: 0
+Questões Conformes: 5
+Questões Não conformes: 2
+Questões Não Aplicáveis: 20
+Questões Adiadas: 0
+
+Controle do Usuario
+Total de Questões: 4
+Respondidas: 4
+Não Respondidas: 0
+Questões Conformes: 1
+Questões Não conformes: 2
+Questões Não Aplicáveis: 1
+Questões Adiadas: 0
+
+Agrupamento por formato
+Total de Questões: 17
+Respondidas: 17
+Não Respondidas: 0
+Questões Conformes: 3
+Questões Não conformes: 6
+Questões Não Aplicáveis: 8
+Questões Adiadas: 0
+
+Acoes explicitas
+Total de Questões: 4
+Respondidas: 4
+Não Respondidas: 0
+Questões Conformes: 1
+Questões Não conformes: 2
+Questões Não Aplicáveis: 1
+Questões Adiadas: 0
+
+Experiencia do Usuario
+Total de Questões: 6
+Respondidas: 6
+Não Respondidas: 0
+Questões Conformes: 1
+Questões Não conformes: 0
+Questões Não Aplicáveis: 5
+Questões Adiadas: 0
+
+Mensagens de erro
+Total de Questões: 9
+Respondidas: 9
+Não Respondidas: 0
+Questões Conformes: 5
+Questões Não conformes: 2
+Questões Não Aplicáveis: 2
+Questões Adiadas: 0
+
+Correcao de erros
+Total de Questões: 5
+Respondidas: 5
+Não Respondidas: 0
+Questões Conformes: 1
+Questões Não conformes: 3
+Questões Não Aplicáveis: 1
+Questões Adiadas: 0
+
+Feedback
+Total de Questões: 12
+Respondidas: 12
+Não Respondidas: 0
+Questões Conformes: 1
+Questões Não conformes: 11
+Questões Não Aplicáveis: 0
+Questões Adiadas: 0
+
+Compatibilidade
+Total de Questões: 21
+Respondidas: 21
+Não Respondidas: 0
+Questões Conformes: 3
+Questões Não conformes: 5
+Questões Não Aplicáveis: 13
+Questões Adiadas: 0
+
+Acoes Minimas
+Total de Questões: 5
+Respondidas: 5
+Não Respondidas: 0
+Questões Conformes: 1
+Questões Não conformes: 0
+Questões Não Aplicáveis: 4
+Questões Adiadas: 0
+
+Presteza
+Total de Questões: 17
+Respondidas: 17
+Não Respondidas: 0
+Questões Conformes: 2
+Questões Não conformes: 7
+Questões Não Aplicáveis: 8
+Questões Adiadas: 0
+
+Agrupamento por localizacao
+Total de Questões: 11
+Respondidas: 11
+Não Respondidas: 0
+Questões Conformes: 2
+Questões Não conformes: 0
+Questões Não Aplicáveis: 9
+Questões Adiadas: 0
+
+Densidade informacional
+Total de Questões: 9
+Respondidas: 9
+Não Respondidas: 0
+Questões Conformes: 5
+Questões Não conformes: 3
+Questões Não Aplicáveis: 1
+Questões Adiadas: 0
+Comentários:
+01- Isso inclusive me fez pensar em reorganizar as telas...
+
+
+Total
+Total de Questões: 194
+Respondidas: 194
+Não Respondidas: 0
+Questões Conformes: 43
+Questões Não conformes:51
+Questões Não Aplicáveis: 100
+Questões Adiadas:0
+pagina final do checklist
